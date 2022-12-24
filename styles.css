@@ -1,20 +1,34 @@
+*{
+    font-size: 50px;
+    font-family: Roboto, sans-serif;
+}
 .calc-outer{
     display: flex;
     justify-content: center;
+    flex: 0;
 }
 
 .calc-inner{
     display:flex;
     flex-direction: column;
+    align-items: center;
+    border: 2px solid black;
 }
 .buttons{
     display:flex;
+    justify-content: center;
+    padding: 0px;
 
 }
 .digits{
     display:flex;
     flex-wrap: wrap;
     flex: 0 0 33.33333%;
+    gap: 16px;
+    align-content: stretch;
+}
+.btn{
+    padding:8px 16px;
 }
 .operators{
     display:flex;
