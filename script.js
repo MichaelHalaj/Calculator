@@ -1,6 +1,8 @@
 const display = document.querySelector('.value-display');
 const buttons = document.querySelectorAll('.digits-item');
 const equal = document.querySelector('#equal');
+const operators = document.querySelectorAll('.operator-item');
+
 function add(val1, val2){
     return val1 + val2;
 }
@@ -42,6 +44,10 @@ let firstNum = '';
 let operator = '';
 let secondNum = '';
 
+function shiftValues(value){
+    secondNum = firstNum;
+    firstNum = value;
+}
 function displayNumber(num){
     firstNum += num;
     display.innerText = firstNum;
@@ -56,5 +62,15 @@ buttons.forEach(btn=> {
 });
 
 equal.addEventListener('click', function(){
-    display.innerText = operate(operator, firstNum, secondNum);
+    const value = operate(operator, +firstNum, +secondNum);
+    shiftValues(value);
+    display.innerText = firstNum;
+
+});
+
+operators.forEach(btn => {
+    btn.addEventListener('click', function(){
+        operator = btn.value;
+        shiftValues('');
+    });
 });
