@@ -13,6 +13,7 @@
 }
 .calc-display{
     width: 368px;
+    height: 75px;
     background-color: grey;
 }
 .calc-inner{
