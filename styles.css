@@ -8,18 +8,21 @@
     flex: 0;
     margin-top: 80px;
 }
-
+.calc-display{
+    width: 368px;
+    background-color: grey;
+}
 .calc-inner{
     display:flex;
     flex-direction: column;
     align-items: center;
     border: 2px solid black;
     width: 400px;
-    height: 550px;
-    padding: 0;
-    margin: 0;
+    padding: 10px;
+    margin: 0px;
     flex-shrink: 0;
     border-radius: 4%;
+    gap: 16px;
 }
 .buttons{
     display:flex;
