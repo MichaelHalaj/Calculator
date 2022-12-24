@@ -9,10 +9,14 @@
 }
 .buttons{
     display:flex;
-    
 
 }
 .digits{
     display:flex;
-    flex:wrap;
+    flex-wrap: wrap;
+    flex: 0 0 33.33333%;
+}
+.operators{
+    display:flex;
+    flex-direction: column;
 }
