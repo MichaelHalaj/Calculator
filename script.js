@@ -2,6 +2,10 @@ const display = document.querySelector('.value-display');
 const buttons = document.querySelectorAll('.digits-item');
 const equal = document.querySelector('#equal');
 const operators = document.querySelectorAll('.operator-item');
+const clear = document.querySelector('#clear');
+let firstNum = '';
+let operator = '';
+let secondNum = '';
 
 function add(val1, val2){
     return val1 + val2;
@@ -33,16 +37,18 @@ function operate(operator, val1, val2){
             return 'Invalid input';
     }
 }
-function clearValues(){
-    const displayNum = document.querySelector('display-value');
-    if(displayNum){
-        display.removeChild(displayNum);
-    }
-    return;
+
+function clearMemory(){
+    firstNum = '';
+    secondNum = '';
+    operator = '';
+    display.innerText = firstNum;
+    console.log('memory cleared');
 }
-let firstNum = '';
-let operator = '';
-let secondNum = '';
+
+clear.addEventListener('click', function(){
+    clearMemory();
+});
 
 function shiftValues(value){
     secondNum = firstNum;
