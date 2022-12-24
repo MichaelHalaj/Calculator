@@ -3,6 +3,8 @@ const buttons = document.querySelectorAll('.digits-item');
 const equal = document.querySelector('#equal');
 const operators = document.querySelectorAll('.operator-item');
 const clear = document.querySelector('#clear');
+const del = document.querySelector('#delete');
+
 let firstNum = '';
 let operator = '';
 let secondNum = '';
@@ -37,17 +39,30 @@ function operate(operator, val1, val2){
             return 'Invalid input';
     }
 }
-
+/**
+ * Updates display with given value or default value
+ * @param {number} val - optional parameter to update display
+ */
+function updateDisplay(val = firstNum){
+    display.innerText = val;
+}
 function clearMemory(){
     firstNum = '';
     secondNum = '';
     operator = '';
-    display.innerText = firstNum;
+    updateDisplay();
     console.log('memory cleared');
+}
+function deleteNum(){
+    firstNum = firstNum.substring(0, firstNum.length-1);
+    updateDisplay();
 }
 
 clear.addEventListener('click', function(){
     clearMemory();
+});
+del.addEventListener('click', function(){
+    deleteNum();
 });
 
 function shiftValues(value){
@@ -56,7 +71,7 @@ function shiftValues(value){
 }
 function displayNumber(num){
     firstNum += num;
-    display.innerText = firstNum;
+    updateDisplay();
 }
 
 
