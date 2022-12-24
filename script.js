@@ -5,6 +5,8 @@ const operators = document.querySelectorAll('.operator-item');
 const clear = document.querySelector('#clear');
 const del = document.querySelector('#delete');
 
+const maxDisplayLength = 13;
+
 let firstNum = '';
 let operator = '';
 let secondNum = '';
@@ -36,7 +38,7 @@ function operate(operator, val1, val2){
         case '/':
             return divide(val1, val2);
         default:
-            return 'Invalid input';
+            return 'INVALID INPUT';
     }
 }
 /**
@@ -44,7 +46,7 @@ function operate(operator, val1, val2){
  * @param {number} val - optional parameter to update display
  */
 function updateDisplay(val = firstNum){
-    display.innerText = val;
+    display.innerText = val.toString().substring(0, maxDisplayLength);
 }
 function clearMemory(){
     firstNum = '';
@@ -85,7 +87,7 @@ buttons.forEach(btn=> {
 equal.addEventListener('click', function(){
     const value = operate(operator, +firstNum, +secondNum);
     shiftValues(value);
-    display.innerText = firstNum;
+    updateDisplay();
 
 });
 
