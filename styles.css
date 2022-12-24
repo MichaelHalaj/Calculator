@@ -17,6 +17,11 @@
     background-color: grey;
     display:flex;
     justify-content: flex-end;
+    align-items: center;
+}
+.value-display{
+    margin-left: 10px;
+    margin-right: 10px;
 }
 .calc-inner{
     display:flex;
