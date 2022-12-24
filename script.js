@@ -1,6 +1,6 @@
-const display = document.querySelector('.calc-display');
+const display = document.querySelector('.value-display');
 const buttons = document.querySelectorAll('.digits-item');
-
+const equal = document.querySelector('#equal');
 function add(val1, val2){
     return val1 + val2;
 }
@@ -38,30 +38,13 @@ function clearValues(){
     }
     return;
 }
+let firstNum = '';
+let operator = '';
+let secondNum = '';
 
-/**
- * Gets current display element or creates a new display if one does not exist.
- */
-function getCurrentDisplayElement(){
-
-    const displayNum = document.querySelector('display-value');
-    console.log(display);
-    if(displayNum){
-        console.log('Should be here');
-        return displayNum;
-    }else{
-        const newDisplayNum = document.createElement('div');
-        newDisplayNum.classList.add('display-value');
-        display.appendChild(newDisplayNum);
-        return newDisplayNum;
-    }
-
-}
 function displayNumber(num){
-    const displayNum = getCurrentDisplayElement();
-    let currVal = displayNum.innerText;
-    displayNum.innerText = `${currVal}${num}`;
-    console.log(currVal + '' +num);
+    firstNum += num;
+    display.innerText = firstNum;
 }
 
 
@@ -70,4 +53,8 @@ buttons.forEach(btn=> {
         displayNumber(btn.innerHTML);
         console.log(btn.innerHTML);
     });
+});
+
+equal.addEventListener('click', function(){
+    display.innerText = operate(operator, firstNum, secondNum);
 });
