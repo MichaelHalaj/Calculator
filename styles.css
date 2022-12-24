@@ -17,9 +17,11 @@
     padding: 0;
     margin: 0;
     flex-shrink: 0;
+    border-radius: 4%;
 }
 .buttons{
     display:flex;
+    flex-direction: column;
     justify-content: center;
     padding: 0px;
 
@@ -29,12 +31,18 @@
     flex-wrap: wrap;
     /*flex: 0 0 33.33333%;*/
     gap: 16px;
+    justify-content: center;
     align-content: stretch;
 }
 .btn{
-    padding:8px 16px;
+    padding: 0;
+    width: 80px;
+    height: 80px;
 }
 .operators{
     display:flex;
     flex-direction: column;
+}
+#clear{
+    width: auto;
 }
