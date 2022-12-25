@@ -38,22 +38,11 @@
     background-color: rgb(116, 14, 61);
 }
 .buttons{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 8px;
-    padding: 0px;
-
-}
-.digits{
-    width:368px;
-    display:flex;
-    flex-wrap: wrap;
-    /*flex: 0 0 33.33333%;*/
-    gap: 16px;
-    /*justify-content: center;*/
-    /*margin-left: 16px;*/
-    align-content: stretch;
+    display:grid;
+    grid-template-columns: repeat(4, 80px);
+    grid-template-rows: repeat(5, 80px);
+    align-items: center;
+    justify-items: center; 
 }
 .btn{
     padding: 0;
