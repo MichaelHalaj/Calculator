@@ -5,7 +5,7 @@ const operators = document.querySelectorAll('.operator-item');
 const clear = document.querySelector('#clear');
 const del = document.querySelector('#delete');
 
-const maxDisplayLength = 13;
+const maxDisplayLength = 14;
 
 let firstNum = '';
 let operator = '';
