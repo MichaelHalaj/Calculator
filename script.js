@@ -14,25 +14,25 @@ Also, need to change the way floats work because it sometimes rounds and doesn't
 update display correctly
 */
 const maxDisplayLength = 14;
-
+const round = 1000000000;
 let firstNum = '';
 let operator = '';
 let secondNum = '';
 
 function add(val1, val2){
-    return val1 + val2;
+    return Math.round((val1 + val2) * round) / round;
 }
 
 function subtract(val1, val2){
-    return val1 - val2;
+    return Math.round((val1 - val2) * round)/round ;
 }
 
 function multiply(val1, val2){
-    return val1 * val2;
+    return Math.round(val1 * val2 * round)/round;
 }
 
 function divide(val1, val2){
-    return val1 / val2;
+    return Math.round(val1 / val2 * round)/ round;
 }
 
 function operate(operator, val1, val2){
@@ -100,7 +100,7 @@ function operateIfFull(){
 }
 function evaluate(){
     const value = operate(operator, +firstNum, +secondNum);
-    if(Number.isInteger(parseFloat(value))){
+    if(/^[+-]?\d+(\.\d+)?$/.test(value)){
         shiftValues(value);
     }
     updateDisplay(value);
