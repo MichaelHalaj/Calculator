@@ -3,6 +3,9 @@
     color: rgb(0, 195, 255);
     font-family: 'Anton', sans-serif;
 }
+body{
+    background:rgb(97, 97, 97);
+}
 .removal{
     font-size: 30px;
     grid-column: span 2;
