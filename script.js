@@ -44,7 +44,7 @@ function operate(operator, val1, val2){
             }
             return divide(val2, val1).toString();
         default:
-            return 'INVALID INPUT';
+            return '';
     }
 }
 /**
@@ -84,7 +84,7 @@ function displayNumber(num){
 }
 
 function operateIfFull(){
-    if(firstNum.length > 0 && secondNum.length >0){
+    if(firstNum.toString().length > 0 && secondNum.toString().length >0){
         evaluate();
         return true;
     }
@@ -92,7 +92,7 @@ function operateIfFull(){
 }
 function evaluate(){
     const value = operate(operator, +firstNum, +secondNum);
-    if(Number.isInteger(value)){
+    if(Number.isInteger(parseInt(value))){
         shiftValues(value);
     }
     updateDisplay(value);
@@ -105,12 +105,7 @@ buttons.forEach(btn=> {
 });
 
 equal.addEventListener('click', function(){
-    const value = operate(operator, +firstNum, +secondNum);
-    if(Number.isInteger(value)){
-        shiftValues(value);
-    }
-    updateDisplay(value);
-
+    evaluate();
 });
 
 operators.forEach(btn => {
