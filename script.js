@@ -114,6 +114,7 @@ buttons.forEach(btn=> {
 
 equal.addEventListener('click', function(){
     evaluate();
+    shiftValues('');
 });
 
 operators.forEach(btn => {
@@ -121,7 +122,10 @@ operators.forEach(btn => {
         let isFull = operateIfFull();
         operator = btn.value;
         console.log(operator);
+        if(firstNum.length > 0){
+            //Covers the case for when equal button is pressed and number is already shifted
+            shiftValues('');
+        }
         
-        shiftValues('');
     });
 });
