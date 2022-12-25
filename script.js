@@ -33,16 +33,16 @@ function operate(operator, val1, val2){
     }
     switch(operator){
         case '+':
-            return add(val2, val1);
+            return add(val2, val1).toString();
         case '-':
-            return subtract(val2, val1);
+            return subtract(val2, val1).toString();
         case '*':
-            return multiply(val2, val1);
+            return multiply(val2, val1).toString();
         case '/':
             if(val1 === 0){
                 return 'ERROR:DIV BY 0'
             }
-            return divide(val2, val1);
+            return divide(val2, val1).toString();
         default:
             return 'INVALID INPUT';
     }
@@ -62,7 +62,8 @@ function clearMemory(){
     console.log('memory cleared');
 }
 function deleteNum(){
-    firstNum = firstNum.substring(0, firstNum.length-1);
+    firstNum = firstNum.toString().substring(0, firstNum.length-1);
+    console.log(firstNum);
     updateDisplay();
 }
 
@@ -82,7 +83,20 @@ function displayNumber(num){
     updateDisplay();
 }
 
-
+function operateIfFull(){
+    if(firstNum.length > 0 && secondNum.length >0){
+        evaluate();
+        return true;
+    }
+    return false;
+}
+function evaluate(){
+    const value = operate(operator, +firstNum, +secondNum);
+    if(Number.isInteger(value)){
+        shiftValues(value);
+    }
+    updateDisplay(value);
+}
 buttons.forEach(btn=> {
     btn.addEventListener('click', function(){
         displayNumber(btn.innerHTML);
@@ -95,7 +109,6 @@ equal.addEventListener('click', function(){
     if(Number.isInteger(value)){
         shiftValues(value);
     }
-    
     updateDisplay(value);
 
 });
@@ -104,6 +117,7 @@ operators.forEach(btn => {
     btn.addEventListener('click', function(){
         operator = btn.value;
         console.log(operator);
+        let isFull = operateIfFull();
         shiftValues('');
     });
 });
