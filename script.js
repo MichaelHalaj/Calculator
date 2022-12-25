@@ -4,7 +4,15 @@ const equal = document.querySelector('#equal');
 const operators = document.querySelectorAll('.operator-item');
 const clear = document.querySelector('#clear');
 const del = document.querySelector('#delete');
+/*
+Need to change the way the continuation of the expression
+Ex. currently 2 + 2 = 4 and then once you press *, then it becomes 8 and does not
+wait for the next value
 
+
+Also, need to change the way floats work because it sometimes rounds and doesn't
+update display correctly
+*/
 const maxDisplayLength = 14;
 
 let firstNum = '';
@@ -110,9 +118,10 @@ equal.addEventListener('click', function(){
 
 operators.forEach(btn => {
     btn.addEventListener('click', function(){
+        let isFull = operateIfFull();
         operator = btn.value;
         console.log(operator);
-        let isFull = operateIfFull();
+        
         shiftValues('');
     });
 });
