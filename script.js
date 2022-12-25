@@ -92,7 +92,7 @@ function operateIfFull(){
 }
 function evaluate(){
     const value = operate(operator, +firstNum, +secondNum);
-    if(Number.isInteger(parseInt(value))){
+    if(Number.isInteger(parseFloat(value))){
         shiftValues(value);
     }
     updateDisplay(value);
