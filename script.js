@@ -30,13 +30,13 @@ function divide(val1, val2){
 function operate(operator, val1, val2){
     switch(operator){
         case '+':
-            return add(val1, val2);
+            return add(val2, val1);
         case '-':
-            return subtract(val1, val2);
+            return subtract(val2, val1);
         case '*':
-            return multiply(val1, val2);
+            return multiply(val2, val1);
         case '/':
-            return divide(val1, val2);
+            return divide(val2, val1);
         default:
             return 'INVALID INPUT';
     }
@@ -94,6 +94,7 @@ equal.addEventListener('click', function(){
 operators.forEach(btn => {
     btn.addEventListener('click', function(){
         operator = btn.value;
+        console.log(operator);
         shiftValues('');
     });
 });
