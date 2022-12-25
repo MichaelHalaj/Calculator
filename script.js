@@ -28,6 +28,9 @@ function divide(val1, val2){
 }
 
 function operate(operator, val1, val2){
+    if(operator.length > 0 && firstNum.length === 0){
+        return 'ERROR:SYNTAX';
+    }
     switch(operator){
         case '+':
             return add(val2, val1);
@@ -36,6 +39,9 @@ function operate(operator, val1, val2){
         case '*':
             return multiply(val2, val1);
         case '/':
+            if(val1 === 0){
+                return 'ERROR:DIV BY 0'
+            }
             return divide(val2, val1);
         default:
             return 'INVALID INPUT';
@@ -86,8 +92,11 @@ buttons.forEach(btn=> {
 
 equal.addEventListener('click', function(){
     const value = operate(operator, +firstNum, +secondNum);
-    shiftValues(value);
-    updateDisplay();
+    if(Number.isInteger(value)){
+        shiftValues(value);
+    }
+    
+    updateDisplay(value);
 
 });
 
