@@ -107,8 +107,8 @@ function evaluate(){
 }
 buttons.forEach(btn=> {
     btn.addEventListener('click', function(){
-        displayNumber(btn.innerHTML);
-        console.log(btn.innerHTML);
+        displayNumber(btn.value);
+        console.log(btn.value);
     });
 });
 
