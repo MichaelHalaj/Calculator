@@ -35,10 +35,15 @@ function divide(val1, val2){
     return Math.round(val1 / val2 * round)/ round;
 }
 
-function operate(operator, val1, val2){
-    if(operator.length > 0 && firstNum.length === 0){
+function operate(operator, string1, string2){
+    /*if(operator.length > 0 && firstNum.length === 0){
         return 'ERROR:SYNTAX';
+    }*/
+    if(string1.length === 0){
+        return string2;
     }
+    let val1 = +string1;
+    let val2 = +string2;
     switch(operator){
         case '+':
             return add(val2, val1).toString();
@@ -47,7 +52,7 @@ function operate(operator, val1, val2){
         case '*':
             return multiply(val2, val1).toString();
         case '/':
-            if(val1 === 0){
+            if(string1 === '0'){
                 return 'ERROR:DIV BY 0'
             }
             return divide(val2, val1).toString();
@@ -99,7 +104,7 @@ function operateIfFull(){
     return false;
 }
 function evaluate(){
-    const value = operate(operator, +firstNum, +secondNum);
+    const value = operate(operator, firstNum, secondNum);
     if(/^[+-]?\d+(\.\d+)?$/.test(value)){
         shiftValues(value);
     }
