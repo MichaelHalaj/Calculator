@@ -4,6 +4,7 @@ const equal = document.querySelector('#equal');
 const operators = document.querySelectorAll('.operator-item');
 const clear = document.querySelector('#clear');
 const del = document.querySelector('#delete');
+const dot = document.querySelector('#dot');
 /*
 Need to change the way the continuation of the expression
 Ex. currently 2 + 2 = 4 and then once you press *, then it becomes 8 and does not
@@ -39,6 +40,9 @@ function operate(operator, string1, string2){
     /*if(operator.length > 0 && firstNum.length === 0){
         return 'ERROR:SYNTAX';
     }*/
+    if(/\.{2,}/.test(string1) || /\.{2,}/.test(string2)){
+        return 'ERROR:SYNTAX';
+    }
     if(string1.length === 0){
         return string2;
     }
